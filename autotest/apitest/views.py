@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import auth
 from django.contrib.auth import authenticate, login
-from .models import Apitest, Apistep
+from .models import Apitest, Apistep, Apis
 # Create your views here.
 
 def test(request):
@@ -49,3 +49,9 @@ def apistep_manage(request):
 	username = request.session.get('user', '')
 	apistep_list = Apistep.objects.all()
 	return render(request, 'apistep_manage.html', {"user":username, "apisteps":apistep_list})
+
+@login_required
+def apis_manage(request):
+	username = request.session.get('user', '')
+	apis_list = Apis.objects.all()
+	return render(request, 'apis_manage.html', {"user":username, "apiss":apis_list})

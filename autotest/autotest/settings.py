@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apitest',
     'product',
     "bug",
+    "set",
 
     'bootstrap4',
 ]
